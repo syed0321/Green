@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenTransport - Sustainable Transportation Platform</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GreenTransport</h1>
+        <p>Sustainable Transportation Platform</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destination.html">Destination</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Enter your destination</h2>
+        <label for="userInput">Destination:</label>
+        <input type="text" id="userInput" name="userInput">
+        <button onclick="showRandomPrices()">Submit</button>
+        <p id="carPrice">Car: </p>
+        <p id="publicTransportationPrice">Public Transportation: </p>
+        <p id="walkingPrice">Walking: </p>
+    </section>
+    
+    <script>
+        function showRandomPrices() {
+            // Get the user input
+            var userInput = document.getElementById('userInput').value;
+    
+            // Dummy functions to generate random prices for each option
+            var carPrice = generateRandomPrice(10, 100); // Change the range as needed
+            var publicTransportationPrice = generateRandomPrice(5, carPrice - 1); // Ensure public transportation price is lower than car
+            var walkingPrice = 0;
+    
+            // Display the random prices
+            document.getElementById('carPrice').textContent = 'Car Price: $' + carPrice;
+            document.getElementById('publicTransportationPrice').textContent = 'Public Transportation Price: $' + publicTransportationPrice;
+            document.getElementById('walkingPrice').textContent = 'Walking Price: $' + walkingPrice;
+        }
+    
+        function generateRandomPrice(min, max) {
+            // Replace this with your logic to generate a random price within the specified range
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+    
+    <footer>
+        <p>GreenTransport - Making a difference in sustainable mobility</p>
+    </footer>
+
+</body>
+</html>
